@@ -3,7 +3,12 @@ import React, {PropTypes} from 'react'
 const Question = ({question}) => {
 	return (
 		<div>
-			{question.question}, {question.answer}
+			<div>
+				{question.question} 
+			</div>
+			<div>
+				{question.answer}
+			</div>
 		</div>
 	)
 }

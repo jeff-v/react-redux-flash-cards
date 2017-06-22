@@ -5,6 +5,7 @@ import * as questionListActions from '../../actions/questionList-actions'
 import QuestionList from './QuestionList'
 import QuestionInput from './QuestionInput'
 
+
 class QuestionContainer extends Component {
 	constructor(props) {
 		super(props)
@@ -12,6 +13,12 @@ class QuestionContainer extends Component {
 		this.state = {
 			questionList: []
 		}
+
+		this.handleShuffle = this.handleShuffle.bind(this)
+	}
+
+	handleShuffle(evt) {
+
 	}
 
 	render() {

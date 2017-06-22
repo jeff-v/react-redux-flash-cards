@@ -5,6 +5,7 @@ class QuestionInput extends Component {
 		super(props)
 
 		this.onAddQuestionClick = this.onAddQuestionClick.bind(this)
+		this.onFinishStackClick = this.onFinishStackClick.bind(this)
 	}
 
 	onAddQuestionClick() {
@@ -23,6 +24,10 @@ class QuestionInput extends Component {
 
 	}
 
+	onFinishStackClick() {
+		
+	}
+
 	componentDidMount() {
 		document.getElementById('question').focus()
 	}
@@ -32,7 +37,7 @@ class QuestionInput extends Component {
 			<div>
 				<input id="question" type="text" placeholder="question" />
 				<input id="answer" type="text" placeholder="answer" />
-				<button onClick={this.onAddQuestionClick}>Add Question</button>
+				<button onClick={this.onAddQuestionClick}>Submit</button>
 			</div>
 		)
 	}
