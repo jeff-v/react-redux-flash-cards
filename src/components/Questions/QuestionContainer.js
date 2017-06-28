@@ -11,23 +11,25 @@ class QuestionContainer extends Component {
 		super(props)
 
 		this.state = {
-			questionList: []
+			questionList: [],
+			finishStack: false
 		}
-
-		this.handleShuffle = this.handleShuffle.bind(this)
+		this.stackIsFinished = this.stackIsFinished.bind(this)
 	}
 
-	handleShuffle(evt) {
-
+	stackIsFinished() {
+		this.setState({ finishStack: true })
 	}
 
 	render() {
-		const {questionList} = this.props
+		const questionList = this.props.questionList
+		const finishStack = this.props.finishStack
 
 		return (
 			<div>
 				<QuestionInput addQuestion={this.props.actions.addQuestion} />
-				<QuestionList questionList={questionList} />
+				<QuestionList questionList={questionList} finishStack={finishStack} />
+				<button onClick={this.stackIsFinished}>Finish Questions</button>
 			</div>
 		)
 	}
@@ -40,7 +42,8 @@ QuestionContainer.propTypes = {
 
 function mapStateToProps(state, props) {
 	return {
-		questionList: state.questionList
+		questionList: state.questionList,
+		finishStack: state.finishStack
 	}
 }
 

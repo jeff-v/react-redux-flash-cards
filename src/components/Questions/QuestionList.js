@@ -2,17 +2,32 @@ import React, {PropTypes} from 'react'
 import Question from './Question'
 import shuffleArray from 'array-shuffle'
 
-const QuestionList = ({questionList}) => {
-	const array = shuffleArray(questionList)
-	console.log(array)
+const QuestionList = (props) => {
+	const questionList = props.questionList
+	const finishStack = props.finishStack
+	const mappedList = questionList.map((question) =>
+		<Question key={question.answer} question={question} />)
+
+	const array = shuffleArray(mappedList)
+
+	if(finishStack === true) {
+		console.log("changed")
 	return (
 		<div>
-			{questionList.map((question) =>
-				<Question key={question.answer} question={question} />
-			)}
+			{array}
+		</div>
+	)
+} else {
+	return (
+		<div>
+			{mappedList}
 		</div>
 	)
 }
+}
+
+
+
 
 QuestionList.propTypes = {
 	questionList: PropTypes.array.isRequired
