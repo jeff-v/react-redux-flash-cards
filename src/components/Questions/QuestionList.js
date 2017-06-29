@@ -5,26 +5,25 @@ import shuffleArray from 'array-shuffle'
 const QuestionList = (props) => {
 	const questionList = props.questionList
 	const finishStack = props.finishStack
-	const mappedList = questionList.map((question) =>
+	const mappedList = questionList.map(question =>
 		<Question key={question.answer} question={question} />)
-
 	const array = shuffleArray(mappedList)
 
-	if(finishStack === true) {
+	if(finishStack === false) {
 		console.log("changed")
 	return (
 		<div>
 			{array}
 		</div>
 	)
-} else {
+}
 	return (
 		<div>
-			{mappedList}
+			<div>{mappedList}</div>
 		</div>
 	)
 }
-}
+
 
 
 

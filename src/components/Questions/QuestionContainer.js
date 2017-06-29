@@ -18,17 +18,17 @@ class QuestionContainer extends Component {
 	}
 
 	stackIsFinished() {
-		this.setState({ finishStack: true })
+		this.setState({ finishStack: !this.state.finishStack })
+		console.log("clicked")
 	}
 
 	render() {
 		const questionList = this.props.questionList
-		const finishStack = this.props.finishStack
 
 		return (
 			<div>
 				<QuestionInput addQuestion={this.props.actions.addQuestion} />
-				<QuestionList questionList={questionList} finishStack={finishStack} />
+				<QuestionList questionList={questionList} finishStack={this.state.finishStack} />
 				<button onClick={this.stackIsFinished}>Finish Questions</button>
 			</div>
 		)
